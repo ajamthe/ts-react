@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from "./components/TodoList";
+import NewTodo from "./components/NewTodo";
 
 // React.FC is a shortform form React.FunctionComponent
 const App: React.FC = () => {
@@ -7,6 +8,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
+      <NewTodo/>
       <TodoList items={todos}/>
     </div>
   );
