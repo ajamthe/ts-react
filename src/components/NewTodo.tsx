@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
+import "./NewTodo.css"
 
 interface INewTodoProps {
+    onAddTodo: (text: string) => void;
 }
 
 const NewTodo: React.FC<INewTodoProps> = (props) => {
@@ -8,9 +10,9 @@ const NewTodo: React.FC<INewTodoProps> = (props) => {
     const todoSubmitHandler = (event: React.FormEvent) => {
         event.preventDefault();
         const externedText = textInputRef.current!.value;
-        console.log(externedText);
+        props.onAddTodo(externedText);
     }
-  return (<form onSubmit={todoSubmitHandler}>
+  return (<form className="form-control" onSubmit={todoSubmitHandler}>
       <div>
           <label htmlFor="todo-text"></label>
           <input type="text" id="todo-text" ref={textInputRef}></input>
